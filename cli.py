@@ -9,13 +9,13 @@ def main(location):
        ex: flix New
        """
     ## locations with more than one word, ie. new york
-    if (len(location) > 1):
+    if (len(location) > 0):
         string = ""
         for arg in location:
             string += arg + "+"
         string = string[:-1]
     else:
-        string = location
+        string = ""
 
     parser = GoogleMovieShowtimes(string,"","")
     database = parser.parse()
@@ -39,8 +39,8 @@ def main(location):
             movie_times += str(movie_info) +  " | "
         click.echo('{0}'.format(movie_times[:-2]))
     
-if __name__ == '__main__':
-    main()
+## if __name__ == '__main__':
+##     main()
 
 
 
