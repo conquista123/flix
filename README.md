@@ -1,4 +1,5 @@
-# flix
+![alt tag](https://raw.github.com/loucru1/flix/master/imgs/flix_small.png)
+
 A command line tool to get the info on all the latest movies. 
 
 # How it works
