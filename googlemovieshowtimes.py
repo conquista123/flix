@@ -130,16 +130,18 @@ class GoogleMovieShowtimes:
 
                 times = div_movie.find('div', {'class': 'times'})
                 times = times.findAll('span')
-
+                
                 for div_time in times:
                     if len(div_time.contents) == 3:
                         time_val = div_time.contents[2]
                         try:
+                            if (len(time_val) == 1):
+                                resp['theater'][index]['movies'][index_m]['times'].append(time_val.contents[0])
                             time_val = re.search('^((([1-9])|(1[0-2])):([0-5])(0|5)((a|p)m)*)$', time_val)
                             resp['theater'][index]['movies'][index_m]['times'].append(time_val.group(1))
                         except (TypeError, AttributeError) as e:
                             resp['theater'][index]['movies'][index_m]['times'].append("")
-                
+        
         return resp
 
 
